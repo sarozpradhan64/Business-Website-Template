@@ -4,7 +4,7 @@ import TextInput from "@/Components/TextInput";
 import AdminLayout from "@/Layouts/AdminLayout";
 import Button from "@/Components/Button";
 import React, { useState, useEffect } from "react";
-import { Inertia } from "@inertiajs/inertia";
+import { router } from '@inertiajs/react';
 import { usePage } from "@inertiajs/react";
 import RadioInput from "@/Components/RadioInput";
 import DragAndDrop from "@/Components/DragandDrop";
@@ -60,7 +60,7 @@ export default function clientDetail({client, cols }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        Inertia.post(route("admin.clientSave"), clientvalues);
+        router.post(route("admin.clientSave"), clientvalues);
     }
 
     console.log(clientvalues);

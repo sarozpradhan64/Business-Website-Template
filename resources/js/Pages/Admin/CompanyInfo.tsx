@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import AdminLayout from "@/Layouts/AdminLayout";
 import Button from "@/Components/Button";
 import TextInput from "@/Components/TextInput";
-import { Inertia } from "@inertiajs/inertia";
+import { router } from '@inertiajs/react';
 import DragAndDrop from "@/Components/DragandDrop";
 import { usePage } from "@inertiajs/react";
 import Textarea from "@/Components/Textarea";
@@ -58,7 +58,7 @@ export default function CompanyInfo({ info, cols, errormsg }) {
 
     const handleSubmit = function (e) {
         e.preventDefault();
-        Inertia.post(route("admin.infoSave"), infovalues, {
+        router.post(route("admin.infoSave"), infovalues, {
             onSuccess: () => setIsReadOnly(!isReadOnly),
         });
     };

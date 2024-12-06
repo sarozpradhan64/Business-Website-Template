@@ -4,7 +4,7 @@ import TextInput from "@/Components/TextInput";
 import AdminLayout from "@/Layouts/AdminLayout";
 import Button from "@/Components/Button";
 import React, { useState, useEffect } from "react";
-import { Inertia } from "@inertiajs/inertia";
+import { router } from '@inertiajs/react';
 import { usePage } from "@inertiajs/react";
 import RadioInput from "@/Components/RadioInput";
 import BackIcon from "@/src/icons/back";
@@ -43,7 +43,7 @@ export default function ServiceDetail({ service, cols }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        Inertia.post(route("admin.serviceSave"), values);
+        router.post(route("admin.serviceSave"), values);
     }
 
     const handleIconHelp = () => setIconHelp(!iconHelp);

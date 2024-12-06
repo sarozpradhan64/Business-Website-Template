@@ -1,7 +1,7 @@
 import PitsLayout from "../Layouts/PitsLayout";
 import React, { useEffect, useState } from "react";
 import Checkbox from "@/Components/Checkbox";
-import { Inertia } from "@inertiajs/inertia";
+import { router } from '@inertiajs/react';
 import { useForm, usePage } from "@inertiajs/react";
 import TextInput from "@/Components/TextInput";
 import Textarea from "@/Components/Textarea";
@@ -70,7 +70,7 @@ export default function Contact({ cols, services }) {
     function handleSubmit(e) {
         e.preventDefault();
         // post route
-        Inertia.post(route("contact"), values, {
+        router.post(route("contact"), values, {
             onSuccess: () => {
                 setValues({});
                 sessionStorage.removeItem("checks");
