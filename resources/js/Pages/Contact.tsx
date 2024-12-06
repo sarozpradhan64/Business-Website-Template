@@ -1,4 +1,4 @@
-import PitsLayout from "../Layouts/PitsLayout";
+import Layout from "../Layouts/Layout";
 import React, { useEffect, useState } from "react";
 import Checkbox from "@/Components/Checkbox";
 import { router } from '@inertiajs/react';
@@ -84,7 +84,7 @@ export default function Contact({ cols, services }) {
 
     return (
         <div>
-            <PitsLayout>
+            <Layout>
                 <Container>
                     <div className=" flex flex-wrap lg:justify-between">
                         <div class="w-full lg:w-1/2 lg:pr-3 xl:w-6/12">
@@ -248,7 +248,7 @@ export default function Contact({ cols, services }) {
                         </div>
                     </div>
                 </Container>
-            </PitsLayout>
+            </Layout>
         </div>
     );
 }

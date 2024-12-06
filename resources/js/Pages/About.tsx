@@ -1,12 +1,12 @@
-import PitsLayout from '@/Layouts/PitsLayout'
+import Layout from '@/Layouts/Layout'
 import React from 'react'
 
 export default function About() {
   return (
     <div>
-        <PitsLayout>
+        <Layout>
         <h1 className="text-3xl text-purple-500">This is about page</h1>
-        </PitsLayout>
+        </Layout>
     </div>
   )
 }

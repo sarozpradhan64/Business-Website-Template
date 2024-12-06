@@ -70,7 +70,7 @@ export default function Sidebar({ activeTitle = "" }) {
         >
             <div className="overflow-y-auto sidebar py-4 px-3 rounded-xl bg-secondary">
                 <Link
-                    href="/admin"
+                    href="/"
                     className="flex items-center justify-center mb-5"
                 >
                     <img
@@ -80,7 +80,7 @@ export default function Sidebar({ activeTitle = "" }) {
                                 : "/images/company_logo.png"
                         }
                         className="h-8 w-8 rounded-full object-cover"
-                        alt="Pits logo"
+                        alt=" logo"
                     />
                     <span
                         className={`self-center text-xl font-semibold whitespace-nowrap ml-2 ${

@@ -1,7 +1,7 @@
 import React from "react";
 import { useTable, useSortBy } from "react-table";
 // uses react-tables
-export default function PitsTable({ data, columns }) {
+export default function Table({ data, columns }) {
     // using react tables package
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
         useTable({ columns, data }, useSortBy);

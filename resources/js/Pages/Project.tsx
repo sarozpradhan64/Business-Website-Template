@@ -1,4 +1,4 @@
-import PitsLayout from "../Layouts/PitsLayout";
+import Layout from "../Layouts/Layout";
 import React, { useEffect } from "react";
 import MainTitle from "@/Components/MainTitle";
 import CapitalizeFirstLetter from "@/utils/CapitalizeFirstLetter";
@@ -16,7 +16,7 @@ export default function Projects({ projects }) {
     }, []);
 
     return (
-        <PitsLayout>
+        <Layout>
             <Container>
                 <MainTitle>Our Projects</MainTitle>
                 {projects.data.map((project, index) => (
@@ -62,6 +62,6 @@ export default function Projects({ projects }) {
                     <Pagination links={projects.links} />
                 </div>
             </Container>
-        </PitsLayout>
+        </Layout>
     );
 }

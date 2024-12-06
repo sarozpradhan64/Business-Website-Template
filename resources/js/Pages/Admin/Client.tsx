@@ -3,7 +3,7 @@ import AdminLayout from "@/Layouts/AdminLayout";
 import { Link } from "@inertiajs/react";
 import Button from "../../Components/Button";
 import CapitalizeFirstLetter from "@/utils/CapitalizeFirstLetter";
-import PitsTable from "@/Components/PitsTable";
+import Table from "@/Components/Table";
 import EditRemove from "@/utils/ViewEditRemove";
 
 export default function Client({ clients, cols }) {
@@ -94,7 +94,7 @@ export default function Client({ clients, cols }) {
                     Add New
                 </Button>{" "}
             </Link>
-            <PitsTable data={data} columns={columns} />
+            <Table data={data} columns={columns} />
         </AdminLayout>
     );
 }

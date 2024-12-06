@@ -1,6 +1,6 @@
 import React from "react";
 import AdminLayout from "@/Layouts/AdminLayout";
-import PitsTable from "@/Components/PitsTable";
+import Table from "@/Components/Table";
 import EditRemove from "@/utils/ViewEditRemove";
 import CapitalizeFirstLetter from "@/utils/CapitalizeFirstLetter";
 
@@ -63,7 +63,7 @@ export default function Message({ messages, cols }) {
     const columns = React.useMemo(() => optimizedColumns, []);
     return (
         <AdminLayout title={"Messages"} activeTitle={"Messages"}>
-            <PitsTable data={data} columns={columns} />
+            <Table data={data} columns={columns} />
         </AdminLayout>
     );
 }

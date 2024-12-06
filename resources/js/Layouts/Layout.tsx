@@ -6,14 +6,14 @@ import { usePage } from "@inertiajs/react";
 import React from "react";
 import NavBar from "../Components/NavBar";
 
-export default function PitsLayout({ children, isHomePage = false }) {
+export default function Layout({ children, isHomePage = false }) {
     const { flash } = usePage().props;
     return (
         <>
             <ThemeProvider>
                 <div className="bg-primary overflow-x-hidden">
                     {/* alert  */}
-                    <div className="pits-alert z-50  " style={{ top: "70px" }}>
+                    <div className="alert z-50  " style={{ top: "70px" }}>
                         {flash.message && (
                             <Alert type="success" content={flash.message} />
                         )}

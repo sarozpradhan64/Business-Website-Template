@@ -1,4 +1,4 @@
-import PitsLayout from "../Layouts/PitsLayout";
+import Layout from "../Layouts/Layout";
 import React, { useEffect, useState } from "react";
 import { Head, Link, usePage } from "@inertiajs/react";
 import RenderMyHtml from "@/utils/RenderMyHtml";
@@ -30,7 +30,7 @@ export default function Home({ services, clients, projects }) {
 
     return (
         <div>
-            <PitsLayout isHomePage={true}>
+            <Layout isHomePage={true}>
                 <div className="relative overflow-hidden lg:min-h-screen bg-primary">
                     <div className="mx-auto max-w-7xl">
                         <div className=" lg:min-h-screen relative  z-10 bg-primary pb-8 sm:pb-16 md:pb-20 lg:w-full lg:max-w-2xl lg:pb-28 xl:pb-32">
@@ -212,7 +212,7 @@ export default function Home({ services, clients, projects }) {
                 {/* clients  */}
                 <Container>
                     <div id="clients">
-                        <MainTitle>PITS Clients</MainTitle>
+                        <MainTitle> Clients</MainTitle>
                         <div className="mt-10 w-[80%] mx-auto select-none">
                             <Swiper
                                 modules={[Autoplay]}
@@ -253,7 +253,7 @@ export default function Home({ services, clients, projects }) {
                     </div>
                 </Container>
                 {/* clients end  */}
-            </PitsLayout>
+            </Layout>
         </div>
     );
 }

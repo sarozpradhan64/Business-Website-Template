@@ -6,7 +6,7 @@ import RenderMyHtml from "@/utils/RenderMyHtml";
 import EditRemove from "../../utils/ViewEditRemove";
 import Button from "@/Components/Button";
 import { Link } from "@inertiajs/react";
-import PitsTable from "@/Components/PitsTable";
+import Table from "@/Components/Table";
 
 export default function Service({ services, cols }) {
     console.log(services);
@@ -82,7 +82,7 @@ export default function Service({ services, cols }) {
                     Add New
                 </Button>{" "}
             </Link>
-            <PitsTable data={data} columns={columns} />
+            <Table data={data} columns={columns} />
         </AdminLayout>
     );
 }

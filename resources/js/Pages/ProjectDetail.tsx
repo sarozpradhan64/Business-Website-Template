@@ -1,4 +1,4 @@
-import PitsLayout from "../Layouts/PitsLayout";
+import Layout from "../Layouts/Layout";
 import "yet-another-react-lightbox/styles.css";
 import React, { useState } from "react";
 import CapitalizeFirstLetter from "@/utils/CapitalizeFirstLetter";
@@ -21,7 +21,7 @@ export default function projectDetail({ project, other_projects }) {
         }));
 
     return (
-        <PitsLayout>
+        <Layout>
             <Container>
                 <Link href={route("projects")}>
                     <Button mode={"transparent"}>
@@ -145,6 +145,6 @@ export default function projectDetail({ project, other_projects }) {
                     </div>
                 </Container>
             )}
-        </PitsLayout>
+        </Layout>
     );
 }

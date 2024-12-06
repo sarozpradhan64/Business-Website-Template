@@ -46,11 +46,11 @@ export default function AdminLayout({ title, activeTitle, children }) {
     return (
         <>
             <Head>
-                <title>{title ? "PITS Admin - " + title : "PITS Admin"}</title>
+                <title>{title ? " Admin - " + title : " Admin"}</title>
             </Head>
             <div className="bg-primary text-primary">
                 {/* alert  */}
-                <div className="pits-alert">
+                <div className="alert">
                     {flash.message && successActive && (
                         <Alert
                             type="success"
