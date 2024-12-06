@@ -9,7 +9,7 @@ import MessageIcon from "@/src/icons/MessageIcon";
 import ProjectIcon from "@/src/icons/project";
 import RotateIcon from "@/src/icons/RotateIcon";
 import ServiceIcon from "@/src/icons/ServiceIcon";
-import { Link, usePage } from "@inertiajs/inertia-react";
+import { Link, usePage } from "@inertiajs/react";
 import React from "react";
 import ThemeToggle from "./ThemeToggle";
 

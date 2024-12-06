@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, usePage } from "@inertiajs/inertia-react";
+import { Link, usePage } from "@inertiajs/react";
 import TelephoneIcon from "@/src/icons/TelephoneIcon";
 import PhoneIcon from "@/src/icons/PhoneIcon";
 import LinkedinIcon from "@/src/icons/LinkedinIcon";

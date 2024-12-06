@@ -1,36 +1,36 @@
-import "./bootstrap";
 import "../css/app.css";
+import "./bootstrap";
 
-import React from "react";
-import { render } from "react-dom";
-import { createInertiaApp } from "@inertiajs/inertia-react";
-import { InertiaProgress } from "@inertiajs/progress";
+import { createInertiaApp } from "@inertiajs/react";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
+import { createRoot } from "react-dom/client";
 import { ThemeProvider } from "./src/themeContext";
 import { CollapseProvider } from "./src/collapseContext";
 import { ActiveProvider } from "./src/activeContext";
 
-// const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
+const appName = import.meta.env.VITE_APP_NAME || "Laravel";
 
 createInertiaApp({
-    // title: (title) => `${title} - ${appName}`,
+    title: (title) => `${title} - ${appName}`,
     resolve: (name) =>
         resolvePageComponent(
-            `./Pages/${name}.jsx`,
-            import.meta.glob("./Pages/**/*.jsx")
+            `./Pages/${name}.tsx`,
+            import.meta.glob("./Pages/**/*.tsx")
         ),
     setup({ el, App, props }) {
-        return render(
+        const root = createRoot(el);
+
+        root.render(
             <ThemeProvider>
                 <CollapseProvider>
                     <ActiveProvider>
                         <App {...props} />
                     </ActiveProvider>
                 </CollapseProvider>
-            </ThemeProvider>,
-            el
+            </ThemeProvider>
         );
     },
+    progress: {
+        color: "#4B5563",
+    },
 });
-
-// InertiaProgress.init({ color: "rgb(113,68,125)" });

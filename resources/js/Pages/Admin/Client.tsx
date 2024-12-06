@@ -1,6 +1,6 @@
 import React from "react";
 import AdminLayout from "@/Layouts/AdminLayout";
-import { Link } from "@inertiajs/inertia-react";
+import { Link } from "@inertiajs/react";
 import Button from "../../Components/Button";
 import CapitalizeFirstLetter from "@/utils/CapitalizeFirstLetter";
 import PitsTable from "@/Components/PitsTable";

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Button from "@/Components/Button";
 import Guest from "@/Layouts/Guest";
-import { Head, useForm } from "@inertiajs/inertia-react";
+import { Head, useForm } from "@inertiajs/react";
 
 export default function ConfirmPassword() {
     const { data, setData, post, processing, errors, reset } = useForm({

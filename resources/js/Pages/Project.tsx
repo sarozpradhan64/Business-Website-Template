@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import MainTitle from "@/Components/MainTitle";
 import CapitalizeFirstLetter from "@/utils/CapitalizeFirstLetter";
 import Button from "@/Components/Button";
-import { Link } from "@inertiajs/inertia-react";
+import { Link } from "@inertiajs/react";
 import Pagination from "@/Components/Pagination";
 import Container from "@/Layouts/Container";
 import { ActiveContext } from "@/src/activeContext";

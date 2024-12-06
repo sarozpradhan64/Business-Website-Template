@@ -1,5 +1,5 @@
 import RenderMyHtml from "@/utils/RenderMyHtml";
-import { Link } from "@inertiajs/inertia-react";
+import { Link } from "@inertiajs/react";
 import React from "react";
 
 export default function Pagination({ links  }) {

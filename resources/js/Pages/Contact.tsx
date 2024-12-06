@@ -2,7 +2,7 @@ import PitsLayout from "../Layouts/PitsLayout";
 import React, { useEffect, useState } from "react";
 import Checkbox from "@/Components/Checkbox";
 import { Inertia } from "@inertiajs/inertia";
-import { useForm, usePage } from "@inertiajs/inertia-react";
+import { useForm, usePage } from "@inertiajs/react";
 import TextInput from "@/Components/TextInput";
 import Textarea from "@/Components/Textarea";
 import Container from "@/Layouts/Container";

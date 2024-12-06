@@ -7,7 +7,7 @@ import BackIcon from "@/src/icons/back";
 import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import MainTitle from "@/Components/MainTitle";
-import { Link } from "@inertiajs/inertia-react";
+import { Link } from "@inertiajs/react";
 import Container from "@/Layouts/Container";
 
 export default function projectDetail({ project, other_projects }) {

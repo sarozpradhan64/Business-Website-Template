@@ -1,6 +1,6 @@
 import PitsLayout from "../Layouts/PitsLayout";
 import React, { useEffect, useState } from "react";
-import { Head, Link, usePage } from "@inertiajs/inertia-react";
+import { Head, Link, usePage } from "@inertiajs/react";
 import RenderMyHtml from "@/utils/RenderMyHtml";
 import MainTitle from "@/Components/MainTitle";
 // Import Swiper React components

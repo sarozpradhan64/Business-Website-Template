@@ -1,24 +1,24 @@
-import AdminLayout from "@/Layouts/AdminLayout";
-import CapitalizeFirstLetter from "../../utils/CapitalizeFirstLetter";
 import React from "react";
-import { useTable, useSortBy } from "react-table";
-import RenderMyHtml from "@/utils/RenderMyHtml";
-import EditRemove from "../../utils/ViewEditRemove";
-import Button from "@/Components/Button";
-import { Link } from "@inertiajs/inertia-react";
+import AdminLayout from "@/Layouts/AdminLayout";
+import { Link } from "@inertiajs/react";
+import Button from "../../Components/Button";
+import CapitalizeFirstLetter from "@/utils/CapitalizeFirstLetter";
 import PitsTable from "@/Components/PitsTable";
+import EditRemove from "@/utils/ViewEditRemove";
 
-export default function Service({ services, cols }) {
-    console.log(services);
+export default function Project({ projects, cols }) {
     // if object convert to array,
     // cols contain table column list from mysql and adding extra column "actions"
     const fields = typeof cols == "object" ? Object.values(cols) : cols;
+    // filtering to include  these columns for table columns
     const columnFields = ["s.n"];
+    // append S.N column to the front
+    //www.freecodecamp.org/news/javascript-append-to-array-a-js-guide-to-the-push-method-2/#how-to-add-the-contents-of-one-array-to-the-end-of-another
     columnFields.push(
-        ...fields.filter((f) => ["title", "icon", "state"].includes(f))
+        ...fields.filter((f) => ["title", "url", "state"].includes(f))
     );
+    // push action column to the end
     columnFields.push("actions");
-
     // optimizing the column with react component <EditRemove/> in action column for edit and remove elements
     //feature of reacttables
     const optimizedColumns = columnFields.map((col) => {
@@ -26,15 +26,7 @@ export default function Service({ services, cols }) {
             return {
                 Header: CapitalizeFirstLetter(col),
                 accessor: col,
-                Cell: (prop) => prop.row.index + 1,
-            };
-        } else if (col === "icon") {
-            return {
-                Header: CapitalizeFirstLetter(col),
-                accessor: col,
-                Cell: (prop) => (
-                    <div className="text-md">{RenderMyHtml(prop.row.original.icon)}</div>
-                ),
+                Cell: (prop) => prop.row.index+1,
             };
         } else if (col == "actions") {
             return {
@@ -43,17 +35,20 @@ export default function Service({ services, cols }) {
                 Cell: (prop) => (
                     <EditRemove
                         isView={true}
+                        // this row will be display in view modal, prop.row.original.id is react-table
+                        //prop that returns current row id
+                        //data.filter returns array
                         viewData={data.filter(
                             (d) => prop.row.original.id === d.id
                         )}
                         removeRoute={
-                            "/admin/service?remove=true&serviceId=" +
+                            "/admin/project?remove=true&projectId=" +
                             prop.row.original.id
                         }
-                        reloadProps={["services"]}
+                        reloadProps={["projects"]}
                         removeTitle={prop.row.original.title}
                         // https://inertiajs.com/links#data
-                        editRoute={route("admin.serviceDetail")}
+                        editRoute={route("admin.projectDetail")}
                         editData={{ id: prop.row.original.id }}
                     />
                 ),
@@ -68,15 +63,14 @@ export default function Service({ services, cols }) {
     });
 
     //tabledata
-    const data = React.useMemo(() => services, []);
+    const data = React.useMemo(() => projects, []);
 
     //tablecolumn
     const columns = React.useMemo(() => optimizedColumns, []);
 
     return (
-        // title is for title in tab and activeTitle is for active link in sidebar
-        <AdminLayout title={"Services"} activeTitle={"Services"}>
-            <Link href={route("admin.serviceDetail")}>
+        <AdminLayout title={"Projects"} activeTitle={"Projects"}>
+            <Link href={route("admin.projectDetail")}>
                 {" "}
                 <Button className="mb-4" mode="blue">
                     Add New

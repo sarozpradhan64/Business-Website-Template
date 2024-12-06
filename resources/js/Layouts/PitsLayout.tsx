@@ -2,7 +2,7 @@ import Alert from "@/Components/Alert";
 import Footer from "@/Components/Footer";
 import ScrollToTop from "@/Components/ScrollToTop";
 import { ThemeProvider } from "@/src/themeContext";
-import { usePage } from "@inertiajs/inertia-react";
+import { usePage } from "@inertiajs/react";
 import React from "react";
 import NavBar from "../Components/NavBar";
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Sidebar from "../Components/Sidebar";
-import { Head, usePage } from "@inertiajs/inertia-react";
+import { Head, usePage } from "@inertiajs/react";
 import ScrollToTop from "@/Components/ScrollToTop";
 import MenuIcon from "@/src/icons/MenuIcon";
 import Alert from "@/Components/Alert";

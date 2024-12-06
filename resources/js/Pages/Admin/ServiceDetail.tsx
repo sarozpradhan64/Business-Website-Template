@@ -5,7 +5,7 @@ import AdminLayout from "@/Layouts/AdminLayout";
 import Button from "@/Components/Button";
 import React, { useState, useEffect } from "react";
 import { Inertia } from "@inertiajs/inertia";
-import { usePage } from "@inertiajs/inertia-react";
+import { usePage } from "@inertiajs/react";
 import RadioInput from "@/Components/RadioInput";
 import BackIcon from "@/src/icons/back";
 

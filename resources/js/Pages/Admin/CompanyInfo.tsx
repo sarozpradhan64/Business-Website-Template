@@ -4,7 +4,7 @@ import Button from "@/Components/Button";
 import TextInput from "@/Components/TextInput";
 import { Inertia } from "@inertiajs/inertia";
 import DragAndDrop from "@/Components/DragandDrop";
-import { usePage } from "@inertiajs/inertia-react";
+import { usePage } from "@inertiajs/react";
 import Textarea from "@/Components/Textarea";
 import Error from "@/Components/Error";
 

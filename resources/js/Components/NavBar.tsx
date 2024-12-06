@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, usePage } from "@inertiajs/inertia-react";
+import { Link, usePage } from "@inertiajs/react";
 import Facebook from "../src/icons/facebook";
 import Instagram from "../src/icons/instagram";
 import HomeIcon from "../src/icons/home";
