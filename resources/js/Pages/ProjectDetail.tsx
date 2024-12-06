@@ -109,7 +109,7 @@ export default function projectDetail({ project, other_projects }) {
                                         className="rounded-lg shadow-lg object-cover w-full h-full"
                                         src={other.thumbnail}
                                         alt={
-                                            "Pasa IT solution project " +
+                                            "My project " +
                                             other.title
                                         }
                                     />

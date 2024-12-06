@@ -166,7 +166,7 @@ export default function Home({ services, clients, projects }) {
                                             className="rounded-lg shadow-lg object-cover w-full h-96"
                                             src={project.thumbnail}
                                             alt={
-                                                "Pasa IT solution project " +
+                                                "My Company " +
                                                 project.title
                                             }
                                         />
