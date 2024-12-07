@@ -60,7 +60,7 @@ export default function projectDetail({ project, cols }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        router.post(route("admin.projectSave"), projectvalues);
+        router.post(route("admin.project-save"), projectvalues);
     }
 
     console.log(projectvalues);

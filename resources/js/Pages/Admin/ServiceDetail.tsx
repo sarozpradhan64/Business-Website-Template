@@ -43,7 +43,7 @@ export default function ServiceDetail({ service, cols }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        router.post(route("admin.serviceSave"), values);
+        router.post(route("admin.service-save"), values);
     }
 
     const handleIconHelp = () => setIconHelp(!iconHelp);

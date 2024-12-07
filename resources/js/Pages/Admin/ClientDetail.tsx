@@ -60,7 +60,7 @@ export default function clientDetail({client, cols }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        router.post(route("admin.clientSave"), clientvalues);
+        router.post(route("admin.client-save"), clientvalues);
     }
 
     console.log(clientvalues);

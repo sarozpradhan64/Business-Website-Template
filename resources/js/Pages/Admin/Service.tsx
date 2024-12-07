@@ -53,7 +53,7 @@ export default function Service({ services, cols }) {
                         reloadProps={["services"]}
                         removeTitle={prop.row.original.title}
                         // https://inertiajs.com/links#data
-                        editRoute={route("admin.serviceDetail")}
+                        editRoute={route("admin.service-show")}
                         editData={{ id: prop.row.original.id }}
                     />
                 ),
@@ -76,7 +76,7 @@ export default function Service({ services, cols }) {
     return (
         // title is for title in tab and activeTitle is for active link in sidebar
         <AdminLayout title={"Services"} activeTitle={"Services"}>
-            <Link href={route("admin.serviceDetail")}>
+            <Link href={route("admin.service-show")}>
                 {" "}
                 <Button className="mb-4" mode="blue">
                     Add New

@@ -48,7 +48,7 @@ export default function Project({ projects, cols }) {
                         reloadProps={["projects"]}
                         removeTitle={prop.row.original.title}
                         // https://inertiajs.com/links#data
-                        editRoute={route("admin.projectDetail")}
+                        editRoute={route("admin.project-show")}
                         editData={{ id: prop.row.original.id }}
                     />
                 ),
@@ -70,7 +70,7 @@ export default function Project({ projects, cols }) {
 
     return (
         <AdminLayout title={"Projects"} activeTitle={"Projects"}>
-            <Link href={route("admin.projectDetail")}>
+            <Link href={route("admin.project-show")}>
                 {" "}
                 <Button className="mb-4" mode="blue">
                     Add New
