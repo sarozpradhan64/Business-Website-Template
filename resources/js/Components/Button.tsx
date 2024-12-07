@@ -45,7 +45,7 @@ export default function Button({
             onClick={handleClick}
             type={type}
             className={
-                `inline-flex items-center px-6 py-2 border border-transparent font-semibold text-sm transition ease-in-out duration-150 rounded-md ${
+                ` px-6 py-2 border border-transparent font-semibold text-md transition ease-in-out duration-150 rounded-md ${
                     processing && " opacity-25 "
                 } ${rounded && " rounded-lg "}` +
                 className +

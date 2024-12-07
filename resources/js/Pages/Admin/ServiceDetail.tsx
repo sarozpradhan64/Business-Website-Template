@@ -4,10 +4,11 @@ import TextInput from "@/Components/TextInput";
 import AdminLayout from "@/Layouts/AdminLayout";
 import Button from "@/Components/Button";
 import React, { useState, useEffect } from "react";
-import { router } from '@inertiajs/react';
+import { router } from "@inertiajs/react";
 import { usePage } from "@inertiajs/react";
 import RadioInput from "@/Components/RadioInput";
-import BackIcon from "@/src/icons/back";
+
+import { ArrowLongLeftIcon } from "@heroicons/react/24/outline";
 
 export default function ServiceDetail({ service, cols }) {
     const serviceFields = typeof cols == "object" ? Object.values(cols) : cols;
@@ -54,7 +55,7 @@ export default function ServiceDetail({ service, cols }) {
         >
             <div className="rounded-md md:px-5">
                 <Button mode={"transparent"} handleClick={() => history.back()}>
-                    <BackIcon /> Go Back
+                    <ArrowLongLeftIcon className="inline w-6 h-6" /> Go Back
                 </Button>
                 <div className="flex flex-col items-center justify-center">
                     <div className="lg:w-1/2 md:w-2/3 w-full">
@@ -74,7 +75,9 @@ export default function ServiceDetail({ service, cols }) {
                                                 field === "icon" &&
                                                 `Enter icon Ex: <i class="fa-brands fa-facebook-f"></i>"`
                                             }
-                                            error={errors[field] && errors[field]} //pass errors.title if exists
+                                            error={
+                                                errors[field] && errors[field]
+                                            } //pass errors.title if exists
                                         />
                                         {field === "icon" && (
                                             <>

@@ -7,6 +7,7 @@ import Alert from "@/Components/Alert";
 import { CollapseContext, CollapseProvider } from "@/src/collapseContext";
 import CollapseToggle from "@/Components/CollapseToggle";
 import NavDropDown from "./_partials/NavDropDown";
+import ThemeToggle from "@/Components/ThemeToggle";
 
 export default function AdminLayout({ title, activeTitle, children }) {
     const { collapse, setCollapse } = React.useContext(CollapseContext);
@@ -83,8 +84,12 @@ export default function AdminLayout({ title, activeTitle, children }) {
                                 : " ml-64 md:w-auto w-full"
                         } mr-5  duration-200  ease`}
                     >
-                        <div className={`mb-4 flex justify-between rounded-xl bg-secondary p-4`}>
-                            <div></div>
+                        <div
+                            className={`mb-4 flex justify-between rounded-xl bg-secondary p-4`}
+                        >
+                            <div>
+                                <ThemeToggle />
+                            </div>
                             <NavDropDown />
                         </div>
 

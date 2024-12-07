@@ -145,9 +145,7 @@ export default function Sidebar({ activeTitle = "" }) {
                             </span>
                         </Link>
                     </li>
-                    <li className={collapse ? "px-1 " : " px-2 "}>
-                        <ThemeToggle />
-                    </li>
+                 
                 </ul>
             </div>
         </aside>

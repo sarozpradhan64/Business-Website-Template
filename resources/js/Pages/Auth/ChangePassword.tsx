@@ -4,8 +4,9 @@ import Checkbox from "@/Components/Checkbox";
 import Guest from "@/Layouts/Guest";
 import { Head, Link, useForm, usePage } from "@inertiajs/react";
 import TextInput from "@/Components/TextInput";
-import BackIcon from "@/src/icons/back";
+
 import AdminLayout from "@/Layouts/AdminLayout";
+import { ArrowLongLeftIcon } from "@heroicons/react/24/outline";
 
 export default function ChangePassword({ status, wrong, canResetPassword }) {
     const { auth } = usePage().props;
@@ -41,7 +42,7 @@ export default function ChangePassword({ status, wrong, canResetPassword }) {
         <AdminLayout title={"Change Password"} activeTitle={"Change Password"}>
             <Head title="Change Password" />
             <Button mode={"transparent"} handleClick={() => history.back()}>
-                <BackIcon /> Go Back
+                 <ArrowLongLeftIcon className="inline w-6 h-6" /> Go Back
             </Button>
             <h1 className="text-primary font-bold text-2xl text-center mb-4">
                 ADMIN
