@@ -1,5 +1,15 @@
 import React from "react";
 
+interface ButtonProps {
+    mode: string;
+    type?: "submit" | "button" | "reset";
+    className?: string;
+    processing?: boolean;
+    children?: React.ReactNode;
+    handleClick?: () => void;
+    rounded?: boolean;
+}
+
 export default function Button({
     mode = "main",
     type = "submit",
@@ -8,7 +18,7 @@ export default function Button({
     children,
     handleClick,
     rounded = false,
-}) {
+}: ButtonProps) {
     let modeClass = "";
     switch (mode) {
         case "main":
