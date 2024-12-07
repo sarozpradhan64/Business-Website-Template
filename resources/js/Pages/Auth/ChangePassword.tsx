@@ -5,10 +5,10 @@ import Guest from "@/Layouts/Guest";
 import { Head, Link, useForm, usePage } from "@inertiajs/react";
 import TextInput from "@/Components/TextInput";
 import BackIcon from "@/src/icons/back";
+import AdminLayout from "@/Layouts/AdminLayout";
 
 export default function ChangePassword({ status, wrong, canResetPassword }) {
-
-    const {auth} = usePage().props;
+    const { auth } = usePage().props;
 
     const { data, setData, post, processing, errors, reset } = useForm({
         old_email: "",
@@ -22,9 +22,9 @@ export default function ChangePassword({ status, wrong, canResetPassword }) {
         };
     }, []);
 
-    useEffect(()=>{
-        setData('email',auth.user.email );
-    }, [])
+    useEffect(() => {
+        setData("email", auth.user.email);
+    }, []);
 
     const onHandleChange = (event) => {
         setData(event.target.name, event.target.value);
@@ -35,16 +35,16 @@ export default function ChangePassword({ status, wrong, canResetPassword }) {
         post(route("password.change"));
     };
 
-    console.log(data)
+    console.log(data);
 
     return (
-        <Guest>
+        <AdminLayout title={"Change Password"} activeTitle={"Change Password"}>
             <Head title="Change Password" />
             <Button mode={"transparent"} handleClick={() => history.back()}>
                 <BackIcon /> Go Back
             </Button>
             <h1 className="text-primary font-bold text-2xl text-center mb-4">
-                 ADMIN
+                ADMIN
             </h1>
             {status && (
                 <div className="mb-4 font-medium text-sm text-green-600">
@@ -56,7 +56,7 @@ export default function ChangePassword({ status, wrong, canResetPassword }) {
             )}
 
             <form onSubmit={submit}>
-            <div className="mt-4">
+                <div className="mt-4">
                     <TextInput
                         field={"email".replace(/_/g, " ")}
                         // name = field
@@ -119,6 +119,6 @@ export default function ChangePassword({ status, wrong, canResetPassword }) {
                     </Button>
                 </div>
             </form>
-        </Guest>
+        </AdminLayout>
     );
 }
