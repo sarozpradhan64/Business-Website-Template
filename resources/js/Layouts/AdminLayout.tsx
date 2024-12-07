@@ -6,6 +6,7 @@ import MenuIcon from "@/src/icons/MenuIcon";
 import Alert from "@/Components/Alert";
 import { CollapseContext, CollapseProvider } from "@/src/collapseContext";
 import CollapseToggle from "@/Components/CollapseToggle";
+import NavDropDown from "./_partials/NavDropDown";
 
 export default function AdminLayout({ title, activeTitle, children }) {
     const { collapse, setCollapse } = React.useContext(CollapseContext);
@@ -80,20 +81,16 @@ export default function AdminLayout({ title, activeTitle, children }) {
                             collapse
                                 ? " md:ml-28  ml-5"
                                 : " ml-64 md:w-auto w-full"
-                        } mr-5  duration-200  ease rounded-xl bg-secondary p-5 h-full  overflow-auto`}
-                        //
+                        } mr-5  duration-200  ease`}
                     >
-                        <div className=" mb-5  flex justify-start  items-center space-x-2 ">
-                            {/* collapse menu  */}
-                            <div className="sm:static fixed bottom-2 right-2">
-                                <CollapseToggle />
-                            </div>
-                            <h1 className="text-3xl font-extrabold">
-                                {" "}
-                                {title ? title : "Admin Panel"}
-                            </h1>
+                        <div className={`mb-4 flex justify-between rounded-xl bg-secondary p-4`}>
+                            <div></div>
+                            <NavDropDown />
                         </div>
-                        {children}
+
+                        <div className=" rounded-xl bg-secondary p-12 h-full  overflow-auto">
+                            {children}
+                        </div>
                     </div>
                 </div>
                 <ScrollToTop />

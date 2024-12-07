@@ -8,7 +8,7 @@ export default function CollapseToggle() {
     const toggleCollapse = () => setCollapse(!collapse);
     return (
         <div
-            className=" w-9 mb-2 drop-shadow-2xl cursor-pointer rounded-full bg-primary text-primary p-2"
+            className=" w-6 mb-2 drop-shadow-2xl cursor-pointer rounded-full bg-primary text-primary p-1"
             onClick={toggleCollapse}
         >
             <MenuIcon />

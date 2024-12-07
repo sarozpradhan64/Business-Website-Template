@@ -88,12 +88,15 @@ export default function Client({ clients, cols }) {
 
     return (
         <AdminLayout title={"Clients"} activeTitle={"Clients"}>
-            <Link href={route("admin.client-show")}>
-                {" "}
-                <Button className="mb-4" mode="blue">
-                    Add New
-                </Button>{" "}
-            </Link>
+            <div className="flex justify-between">
+                <h1 className="text-3xl font-semibold">Clients</h1>
+                <Link href={route("admin.client-show")}>
+                    <Button className="mb-4" mode="blue">
+                        Add New
+                    </Button>
+                </Link>
+            </div>
+
             <Table data={data} columns={columns} />
         </AdminLayout>
     );
