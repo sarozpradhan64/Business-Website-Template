@@ -58,7 +58,7 @@ export default function CompanyInfo({ info, cols, errormsg }) {
 
     const handleSubmit = function (e) {
         e.preventDefault();
-        router.post(route("admin.infoSave"), infovalues, {
+        router.post(route("admin.info-store"), infovalues, {
             onSuccess: () => setIsReadOnly(!isReadOnly),
         });
     };

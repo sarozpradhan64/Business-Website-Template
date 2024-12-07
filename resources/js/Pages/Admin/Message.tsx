@@ -63,6 +63,9 @@ export default function Message({ messages, cols }) {
     const columns = React.useMemo(() => optimizedColumns, []);
     return (
         <AdminLayout title={"Messages"} activeTitle={"Messages"}>
+            <div className="flex justify-between">
+                <h1 className="text-3xl font-semibold">Messages</h1>
+            </div>
             <Table data={data} columns={columns} />
         </AdminLayout>
     );

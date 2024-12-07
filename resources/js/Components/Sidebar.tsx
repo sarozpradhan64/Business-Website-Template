@@ -12,6 +12,7 @@ import ServiceIcon from "@/src/icons/ServiceIcon";
 import { Link, usePage } from "@inertiajs/react";
 import React from "react";
 import ThemeToggle from "./ThemeToggle";
+import CollapseToggle from "./CollapseToggle";
 
 export default function Sidebar({ activeTitle = "" }) {
     const { collapse, setCollapse } = React.useContext(CollapseContext);
@@ -69,9 +70,13 @@ export default function Sidebar({ activeTitle = "" }) {
             aria-label="Sidebar"
         >
             <div className="overflow-y-auto sidebar py-4 px-3 rounded-xl bg-secondary">
+                {/* collapse menu  */}
+                <div className="sm:static fixed bottom-2 right-2 flex justify-end">
+                    <CollapseToggle />
+                </div>
                 <Link
                     href="/"
-                    className="flex items-center justify-center mb-5"
+                    className="flex flex-col items-center justify-center mb-5"
                 >
                     <img
                         src={
@@ -82,7 +87,7 @@ export default function Sidebar({ activeTitle = "" }) {
                         className="h-8 w-8 rounded-full object-cover"
                         alt=" logo"
                     />
-                    <span
+                    <div
                         className={`self-center text-xl font-semibold whitespace-nowrap ml-2 ${
                             collapse ? "hidden" : "inline-block "
                         }`}
@@ -91,7 +96,7 @@ export default function Sidebar({ activeTitle = "" }) {
                             ? info.company_name_shortform.toUpperCase() +
                               " Admin"
                             : "Admin Panel"}
-                    </span>
+                    </div>
                 </Link>
                 <ul className="space-y-2">
                     {sidebarLinks.map((link, index) => (
@@ -140,9 +145,7 @@ export default function Sidebar({ activeTitle = "" }) {
                             </span>
                         </Link>
                     </li>
-                    <li className={collapse ? "px-1 " : " px-2 "}>
-                        <ThemeToggle />
-                    </li>
+                 
                 </ul>
             </div>
         </aside>

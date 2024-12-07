@@ -16,18 +16,14 @@ use Inertia\Inertia;
 
 class HomeController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('IsCompanyInfo');
-    // }
 
     public function Home()
     {
         $services = Service::where('state', 'on')->orderBy('title', 'ASC')->get();
         $clients = Client::where('state', 'on')->get();
         $projects = Project::where('state', 'on')->latest()->limit(3)->get();
-        $compact = ['services' => $services, 'clients' => $clients, 'projects' => $projects];
-        return Inertia::render('Home', $compact);
+        $data = ['services' => $services, 'clients' => $clients, 'projects' => $projects];
+        return Inertia::render('Home', $data);
     }
 
     public function About()
@@ -38,9 +34,8 @@ class HomeController extends Controller
     public function Projects()
     {
         $projects = Project::where('state', 'on')->latest()->paginate(5);
-        // dd($projects);
-        $compact = ['projects' => $projects];
-        return Inertia::render('Project', $compact);
+        $data = ['projects' => $projects];
+        return Inertia::render('Project', $data);
     }
 
     public function ProjectDetail($slug)
@@ -48,9 +43,9 @@ class HomeController extends Controller
         try {
             $project = Project::where('slug', $slug)->first();
             $other_projects = Project::whereNotIn('id', [$project->id])->where('state','on')->inRandomOrder()->limit(8)->get();
-            $compact = ['project' => $project, 'other_projects' => $other_projects];
-            return Inertia::render('ProjectDetail', $compact);
-        } catch (Exception $exception) {
+            $data = ['project' => $project, 'other_projects' => $other_projects];
+            return Inertia::render('ProjectDetail', $data);
+        } catch (Exception) {
             return abort(404);
         }
     }
@@ -72,7 +67,7 @@ class HomeController extends Controller
         $col_list = Schema::getColumnListing('messages');
         $cols = array_diff($col_list, $discard);
         $servies = Service::where('state', 'on')->orderBy('title', 'ASC')->get('title');
-        $compact = ['cols' => $cols, 'services' => $servies];
-        return Inertia::render('Contact', $compact);
+        $data = ['cols' => $cols, 'services' => $servies];
+        return Inertia::render('Contact', $data);
     }
 }

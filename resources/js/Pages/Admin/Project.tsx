@@ -26,7 +26,7 @@ export default function Project({ projects, cols }) {
             return {
                 Header: CapitalizeFirstLetter(col),
                 accessor: col,
-                Cell: (prop) => prop.row.index+1,
+                Cell: (prop) => prop.row.index + 1,
             };
         } else if (col == "actions") {
             return {
@@ -48,7 +48,7 @@ export default function Project({ projects, cols }) {
                         reloadProps={["projects"]}
                         removeTitle={prop.row.original.title}
                         // https://inertiajs.com/links#data
-                        editRoute={route("admin.projectDetail")}
+                        editRoute={route("admin.project-show")}
                         editData={{ id: prop.row.original.id }}
                     />
                 ),
@@ -69,13 +69,17 @@ export default function Project({ projects, cols }) {
     const columns = React.useMemo(() => optimizedColumns, []);
 
     return (
-        <AdminLayout title={"Projects"} activeTitle={"Projects"}>
-            <Link href={route("admin.projectDetail")}>
-                {" "}
-                <Button className="mb-4" mode="blue">
-                    Add New
-                </Button>{" "}
-            </Link>
+        <AdminLayout>
+            <div className="flex justify-between">
+                <h1 className="text-3xl font-semibold">Projects</h1>
+                <Link href={route("admin.project-show")}>
+                    {" "}
+                    <Button className="mb-4" mode="blue">
+                        Add New
+                    </Button>{" "}
+                </Link>
+            </div>
+
             <Table data={data} columns={columns} />
         </AdminLayout>
     );

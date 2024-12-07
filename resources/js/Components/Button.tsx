@@ -1,5 +1,15 @@
 import React from "react";
 
+interface ButtonProps {
+    mode: string;
+    type?: "submit" | "button" | "reset";
+    className?: string;
+    processing?: boolean;
+    children?: React.ReactNode;
+    handleClick?: () => void;
+    rounded?: boolean;
+}
+
 export default function Button({
     mode = "main",
     type = "submit",
@@ -8,7 +18,7 @@ export default function Button({
     children,
     handleClick,
     rounded = false,
-}) {
+}: ButtonProps) {
     let modeClass = "";
     switch (mode) {
         case "main":
@@ -35,9 +45,9 @@ export default function Button({
             onClick={handleClick}
             type={type}
             className={
-                `inline-flex items-center px-7 py-3 border border-transparent font-semibold text-md transition ease-in-out duration-150 rounded ${
+                ` px-6 py-2 border border-transparent font-semibold text-md transition ease-in-out duration-150 rounded-md ${
                     processing && " opacity-25 "
-                } ${rounded && " rounded-md "}` +
+                } ${rounded && " rounded-lg "}` +
                 className +
                 " " +
                 modeClass

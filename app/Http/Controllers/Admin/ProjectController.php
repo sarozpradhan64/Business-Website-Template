@@ -25,7 +25,7 @@ class ProjectController extends Controller
         $this->col_list = Schema::getColumnListing('projects');
         $this->cols = array_diff($this->col_list, $this->discard);
     }
-    public function Project(Request $request)
+    public function index(Request $request)
     {
         // remove 
         if (isset($request->remove) && $request->remove == true && isset($request->projectId)) {
@@ -43,7 +43,7 @@ class ProjectController extends Controller
         return Inertia::render('Admin/Project', $compact);
     }
 
-    public function detailProject(Request $request)
+    public function show(Request $request)
     {
         $compact = [];
         if (isset($request->id)) {
@@ -55,10 +55,9 @@ class ProjectController extends Controller
         return Inertia::render('Admin/ProjectDetail', $compact);
     }
 
-    public function saveProject(Request $request)
+    public function store(Request $request)
     {
         if ($request->isMethod('post')) {
-            // dd($request->all());
             //validation 
             $request->validate([
                 'title' => 'required | max: 250',

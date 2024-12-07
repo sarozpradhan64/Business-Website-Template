@@ -33,7 +33,9 @@ export default function Service({ services, cols }) {
                 Header: CapitalizeFirstLetter(col),
                 accessor: col,
                 Cell: (prop) => (
-                    <div className="text-md">{RenderMyHtml(prop.row.original.icon)}</div>
+                    <div className="text-md">
+                        {RenderMyHtml(prop.row.original.icon)}
+                    </div>
                 ),
             };
         } else if (col == "actions") {
@@ -53,7 +55,7 @@ export default function Service({ services, cols }) {
                         reloadProps={["services"]}
                         removeTitle={prop.row.original.title}
                         // https://inertiajs.com/links#data
-                        editRoute={route("admin.serviceDetail")}
+                        editRoute={route("admin.service-show")}
                         editData={{ id: prop.row.original.id }}
                     />
                 ),
@@ -76,12 +78,15 @@ export default function Service({ services, cols }) {
     return (
         // title is for title in tab and activeTitle is for active link in sidebar
         <AdminLayout title={"Services"} activeTitle={"Services"}>
-            <Link href={route("admin.serviceDetail")}>
-                {" "}
-                <Button className="mb-4" mode="blue">
-                    Add New
-                </Button>{" "}
-            </Link>
+            <div className="flex justify-between">
+                <h1 className="text-3xl font-semibold">Services</h1>
+                <Link href={route("admin.service-show")}>
+                    <Button className="mb-4" mode="blue">
+                        Add New
+                    </Button>
+                </Link>
+            </div>
+
             <Table data={data} columns={columns} />
         </AdminLayout>
     );

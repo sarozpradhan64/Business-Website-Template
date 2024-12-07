@@ -8,7 +8,6 @@ use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
 
 // using grouping technique
 //as => 'admin.' is the prefix for names of route.
@@ -22,35 +21,35 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
 
     // serviceController 
     Route::controller(ServiceController::class)->group(function () {
-        Route::get('/service', 'Service')->name('service');
-        Route::match(['get', 'post'], '/service/detail', 'detailService')->name('serviceDetail');
-        Route::post('/service/save', 'saveService')->name('serviceSave');
-        Route::post('/service/delete/{serviceId}', 'deleteService')->name('serviceDelete');
+        Route::get('/service', 'index')->name('service');
+        Route::match(['get', 'post'], '/service/detail', 'show')->name('service-show');
+        Route::post('/service/save', 'store')->name('service-save');
+        Route::post('/service/delete/{serviceId}', 'destroy')->name('service-destroy');
     });
 
     // project controller 
     Route::controller(ProjectController::class)->group(function () {
-        Route::get('/project', 'Project')->name('project');
-        Route::post('/project/save', 'saveProject')->name('projectSave');
-        Route::match(['get', 'post'], '/project/detail', 'detailProject')->name('projectDetail');
+        Route::get('/project', 'index')->name('project');
+        Route::post('/project/save', 'store')->name('project-save');
+        Route::match(['get', 'post'], '/project/detail', 'show')->name('project-show');
     });
 
     // client controller 
     Route::controller(ClientController::class)->group(function () {
-        Route::get('/client', 'client')->name('client');
-        Route::post('/client/save', 'saveClient')->name('clientSave');
-        Route::match(['get', 'post'], '/client/detail', 'detailClient')->name('clientDetail');
+        Route::get('/client', 'index')->name('client');
+        Route::post('/client/save', 'store')->name('client-save');
+        Route::match(['get', 'post'], '/client/detail', 'show')->name('client-show');
     });
 
     //message controller
     Route::controller(MessageController::class)->group(function () {
-        Route::match(['get', 'post'], '/message', 'Message')->name('message');
-        Route::match(['get', 'post'], '/message/delete/{messageId}', 'deleteMessage')->name('messageDelete');
+        Route::match(['get', 'post'], '/message', 'index')->name('message');
+        Route::match(['get', 'post'], '/message/delete/{messageId}', 'destroy')->name('message-destroy');
     });
 
     // companyinfo controller 
     Route::controller(CompanyInfoController::class)->group(function () {
-        Route::match(['get', 'post'], '/company-info', 'CompanyInfo')->name('companyInfo');
-        Route::post('/company-info/save', 'saveInfo')->name('infoSave');
+        Route::match(['get', 'post'], '/company-info', 'index')->name('companyInfo');
+        Route::post('/company-info/save', 'store')->name('info-store');
     });
 });

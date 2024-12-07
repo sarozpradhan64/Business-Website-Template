@@ -66,7 +66,7 @@ export default function Client({ clients, cols }) {
                         reloadProps={["clients"]}
                         removeTitle={prop.row.original.title}
                         // https://inertiajs.com/links#data
-                        editRoute={route("admin.clientDetail")}
+                        editRoute={route("admin.client-show")}
                         editData={{ id: prop.row.original.id }}
                     />
                 ),
@@ -88,12 +88,15 @@ export default function Client({ clients, cols }) {
 
     return (
         <AdminLayout title={"Clients"} activeTitle={"Clients"}>
-            <Link href={route("admin.clientDetail")}>
-                {" "}
-                <Button className="mb-4" mode="blue">
-                    Add New
-                </Button>{" "}
-            </Link>
+            <div className="flex justify-between">
+                <h1 className="text-3xl font-semibold">Clients</h1>
+                <Link href={route("admin.client-show")}>
+                    <Button className="mb-4" mode="blue">
+                        Add New
+                    </Button>
+                </Link>
+            </div>
+
             <Table data={data} columns={columns} />
         </AdminLayout>
     );

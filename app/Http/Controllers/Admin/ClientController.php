@@ -11,9 +11,9 @@ use Inertia\Inertia;
 
 class ClientController extends Controller
 {
-    protected $dicard = [];
-    protected $col_list = [];
-    protected $cols = [];
+    protected $dicard;
+    protected $col_list;
+    protected $cols;
 
     public function __construct()
     {
@@ -22,7 +22,7 @@ class ClientController extends Controller
         $this->cols = array_diff($this->col_list, $this->discard);
     }
 
-    public function Client(Request $request)
+    public function index(Request $request)
     {
         if (isset($request->remove) && $request->remove == true && isset($request->clientId)) {
             $client = Client::findorFail($request->clientId);
@@ -38,7 +38,7 @@ class ClientController extends Controller
         return Inertia::render('Admin/Client', $compact);
     }
 
-    public function detailClient(Request $request)
+    public function show(Request $request)
     {
         $compact = [];
         if (isset($request->id)) {
@@ -50,7 +50,7 @@ class ClientController extends Controller
         return Inertia::render('Admin/ClientDetail', $compact);
     }
 
-    public function saveClient(Request $request)
+    public function store(Request $request)
     {
         if ($request->isMethod('post')) {
 

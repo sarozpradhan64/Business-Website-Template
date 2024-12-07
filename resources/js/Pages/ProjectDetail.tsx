@@ -3,12 +3,13 @@ import "yet-another-react-lightbox/styles.css";
 import React, { useState } from "react";
 import CapitalizeFirstLetter from "@/utils/CapitalizeFirstLetter";
 import Button from "@/Components/Button";
-import BackIcon from "@/src/icons/back";
+
 import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import MainTitle from "@/Components/MainTitle";
 import { Link } from "@inertiajs/react";
 import Container from "@/Layouts/Container";
+import { ArrowLongLeftIcon } from "@heroicons/react/24/outline";
 
 export default function projectDetail({ project, other_projects }) {
     const [index, setIndex] = useState(-1);
@@ -25,7 +26,7 @@ export default function projectDetail({ project, other_projects }) {
             <Container>
                 <Link href={route("projects")}>
                     <Button mode={"transparent"}>
-                        <BackIcon /> Go Back
+                         <ArrowLongLeftIcon className="inline w-6 h-6" /> Go Back
                     </Button>
                 </Link>
                 <div
