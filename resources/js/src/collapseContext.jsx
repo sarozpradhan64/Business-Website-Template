@@ -5,7 +5,7 @@ const getInitalCollapse = () => {
     if (typeof window !== "undefined" && window.localStorage) {
         const collapsePrefs = window.localStorage.getItem("collapse");
         if (typeof collapsePrefs === "string") {
-            return collapsePrefs;
+            return collapsePrefs === "false" ? false : true;
         }
     }
     return false;
@@ -19,7 +19,7 @@ export const CollapseProvider = ({ initialCollapse, children }) => {
     const rawSetCollapse = (collapse) => {
         localStorage.setItem("collapse", collapse); //storing collapse configuration in local
     };
-    
+
     if (initialCollapse) {
         rawSetCollapse(initialCollapse);
     }
