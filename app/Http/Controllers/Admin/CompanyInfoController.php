@@ -12,7 +12,7 @@ use Inertia\Inertia;
 
 class CompanyInfoController extends Controller
 {
-    public function CompanyInfo(Request $request)
+    public function index(Request $request)
     {
 
         // companyinfos table is supposed to  have only one record 
@@ -29,7 +29,7 @@ class CompanyInfoController extends Controller
         return Inertia::render('Admin/CompanyInfo', $compact);
     }
 
-    public function saveInfo(Request $request)
+    public function store(Request $request)
     { // companyinfos table is supposed to  have only one record 
         if ($request->isMethod('post')) {
             $request->validate([

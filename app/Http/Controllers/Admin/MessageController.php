@@ -12,7 +12,7 @@ use Inertia\Inertia;
 
 class MessageController extends Controller
 {
-    public function message(Request $request)
+    public function index(Request $request)
     {
         if (isset($request->remove) && $request->remove == true && isset($request->messageId)) {
             Message::destroy($request->messageId);
@@ -26,7 +26,7 @@ class MessageController extends Controller
         return Inertia::render('Admin/Message', $compact);
     }
 
-    public function deleteMessage($messageId)
+    public function destroy($messageId)
     {
         Message::destroy($messageId);
 

@@ -23,7 +23,7 @@ class ServiceController extends Controller
         $this->cols = array_diff($this->col_list, $this->discard);
     }
 
-    public function Service(Request $request)
+    public function index(Request $request)
     {
 
         if (isset($request->remove) && $request->remove == true && isset($request->serviceId)) {
@@ -37,7 +37,7 @@ class ServiceController extends Controller
         return Inertia::render('Admin/Service', $compact);
     }
 
-    public function detailService(Request $request)
+    public function show(Request $request)
     {   $compact = [];
         if (isset($request->id)) {
             $id = $request->id;
@@ -48,7 +48,7 @@ class ServiceController extends Controller
         return Inertia::render('Admin/ServiceDetail', $compact);
     }
 
-    public function saveService(Request $request)
+    public function store(Request $request)
     {
         if ($request->isMethod('post')) {
             //validation 
@@ -70,7 +70,7 @@ class ServiceController extends Controller
         }
     }
 
-    public function deleteService($serviceId)
+    public function destroy($serviceId)
     {
         Service::destroy($serviceId);
         Session::flash('deleted', 'Service deleted !');
